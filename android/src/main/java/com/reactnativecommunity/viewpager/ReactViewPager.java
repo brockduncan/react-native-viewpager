@@ -215,6 +215,11 @@ public class ReactViewPager extends VerticalViewPager {
     // The viewpager reset an internal flag on this method so we need to run another layout pass
     // after attaching to window.
     this.requestLayout();
+    measure(
+              MeasureSpec.makeMeasureSpec(getWidth(), MeasureSpec.EXACTLY),
+              MeasureSpec.makeMeasureSpec(getHeight(), MeasureSpec.EXACTLY));
+      layout(getLeft(), getTop(), getRight(), getBottom());
+      
     post(measureAndLayout);
   }
 
